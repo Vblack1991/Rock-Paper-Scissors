@@ -24,8 +24,31 @@ function playRound(playerSelection, computerSelection) {
 let roundForPlayer = "You've won this round"
 let roundForComputer = "Computer wins this round"
 let Draw = "Draw,play again"
-let playerWin = "Congrats,you've won!"
-let computerWin = "You've lost the game!"
+let playerWin = "Congrats,you've won the game!"
+let computerWin = "You lost the game!"
+
+for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt("Enter your choice").toLowerCase();
+    let computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerSelection);
+    game(roundResult);
+    console.log(roundResult);
+    if (roundForPlayer === 3)
+        console.log(playerWin);
+    else if (roundForComputer === 3)
+        console.log(computerWin);
+    else (Draw > 4)
+        console.log(Draw);
+}
+
+function game() {
+    if (roundForPlayer === 5)
+        return playerWin;
+    else if (roundForComputer === 5)
+        return computerWin;
+    else (Draw === 5)
+        return Draw;
+}
 
 
 
